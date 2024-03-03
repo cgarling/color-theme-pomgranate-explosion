@@ -1,6 +1,7 @@
 ;; color-theme-pomgranate-explosion: a color theme for GNU Emacs
 
 ;; Copyright (C) 2012 Benoit Marcot - juz4m AT hotmail DOT com
+;; Copyright (C) 2024 Christopher Garling
 
 ;; This program is free software: you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -16,43 +17,38 @@
 ;; along with this program.  If not, see
 ;; <http://www.gnu.org/licenses/>.
 
-(defun color-theme-pomgranate-explosion ()
-  "Color Theme Pomgranate Explosion - Benoit Marcot (juz4m@hotmail.com)."
-  (interactive)
-  (color-theme-install
-   '(color-theme-pomgranate-explosion
-     ((background-color . "#222222")
-      (background-mode . dark)
-      (border-color . "#222222")
-      (cursor-color . "#dddddd")
-      (foreground-color . "#dddddd")
-      (mouse-color . "black"))
-     ((blank-space-face . blank-space-face)
-      (blank-tab-face . blank-tab-face)
-      (list-matching-lines-face . bold)
-      (view-highlight-face . highlight))
-     (default ((t (nil))))
-     (blank-space-face ((t (:background "LightGray"))))
-     (blank-tab-face ((t (:background "green" :foreground "black"))))
-     (bold ((t (:bold t))))
-     (bold-italic ((t (:italic t :bold t))))
+(deftheme pomgranate-explosion "pomgranate explosion theme")
+(custom-theme-set-faces 'pomgranate-explosion
+			'(default ((t (:background "#222222" :foreground "#dddddd"))))
+			'(mouse ((t (:background "black"))))
+			'(cursor ((t (:background "#dddddd"))))
+			'(border ((t (:background "#222222"))))
 
-     (font-lock-constant-face ((t (:foreground "#f2e1ac"))))
-     (font-lock-comment-face ((t (:foreground "#cd2c24"))))
-     (font-lock-keyword-face ((t (:foreground "#f2594b"))))
-     (font-lock-preprocessor-face ((t (:foreground "#63a69f"))))
-     (font-lock-string-face ((t (:foreground "#f2e1ac"))))
-     (font-lock-variable-name-face ((t (:bold t :foreground "#f2e1ac"))))
-     (font-lock-function-name-face ((t (:bold t :foreground "#ffffff"))))
-     (font-lock-type-face ((t (:foreground "#f2836b"))))
-     (font-lock-warning-face ((t (:bold t :foreground "red"))))
-     (font-lock-builtin-face ((t (:foreground "#63a69f"))))
+			'(blank-space-face ((t (:background "LightGray"))))
+			'(blank-tab-face ((t (:background "green" :foreground "black"))))
+			'(bold ((t (:bold t))))
+			'(bold-italic ((t (:italic t :bold t))))
+			'(font-lock-constant-face ((t (:foreground "#f2e1ac"))))
+			'(font-lock-comment-face ((t (:foreground "#cd2c24"))))
+			'(font-lock-keyword-face ((t (:foreground "#f2594b"))))
+			'(font-lock-preprocessor-face ((t (:foreground "#63a69f"))))
+			'(font-lock-string-face ((t (:foreground "#f2e1ac"))))
+			'(font-lock-variable-name-face ((t (:bold t :foreground "#f2e1ac"))))
+			'(font-lock-function-name-face ((t (:bold t :foreground "#ffffff"))))
+			'(font-lock-type-face ((t (:foreground "#f2836b"))))
+			'(font-lock-warning-face ((t (:bold t :foreground "red"))))
+			'(font-lock-builtin-face ((t (:foreground "#63a69f"))))
+			'(highlight ((t (:background "#f2836b" :foreground "#dddddd"))))
+			'(isearch ((t (:background "#63a69f" :foreground "#dddddd"))))
+			'(region ((t (:background "#f2594b" :foreground "#dddddd"))))
+			'(show-paren-match-face ((t (:bold t :background "#63a69f" :foreground "#222222"))))
+			'(show-paren-mismatch-face ((t (:bold t :background "#cd2c24" :foreground "#dddddd"))))
+			'(minibuffer-prompt ((t (:foreground "#f2886b"))))
+			'(modeline ((t (:background "#cd2c24" :foreground "#dddddd")))))
 
-     (highlight ((t (:background "#f2836b" :foreground "#dddddd"))))
-     (isearch ((t (:background "#63a69f" :foreground "#dddddd"))))
-     (minibuffer-prompt ((t (:foreground "#f2886b"))))
-     (modeline ((t (:background "#cd2c24" :foreground "#dddddd"))))
-     (region ((t (:background "#f2594b" :foreground "#dddddd"))))
-     (show-paren-match-face ((t (:bold t :background "#63a69f" :foreground "#222222"))))
-     (show-paren-mismatch-face ((t (:bold t :background "#cd2c24" :foreground "#dddddd"))))
- )))
+;;;###autoload
+(when load-file-name
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
+
+(provide-theme 'pomgranate-explosion)
